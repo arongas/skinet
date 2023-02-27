@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Extensions
 {
+    //extensions of Program.cs to make things more tiddy.
     public static class ApplicationServicesExtensions
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services,
@@ -21,9 +22,12 @@ namespace API.Extensions
             });
             // add repository
             services.AddScoped<IProductRepository, ProductRepository>();
+            // Add generic repository
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            //Add dto mapper
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+            // validation error response
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.InvalidModelStateResponseFactory = actionContext =>

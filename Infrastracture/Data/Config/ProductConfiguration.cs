@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastracture.Data.Config
 {
+    //Map DTO to DBImpl and vise versa
     public class ProductConfiguration : IEntityTypeConfiguration<Product>
     {
         public void Configure(EntityTypeBuilder<Product> builder)

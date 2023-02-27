@@ -11,15 +11,22 @@ builder.Services.AddControllers();
 builder.Services.AddApplicationServices(builder.Configuration);
 
 var app = builder.Build();
+
+// exception handler/middleware
 app.UseMiddleware<ExceptionMiddleware>();
+
 app.UseStatusCodePagesWithReExecute("/errors/{0}");
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//serve wwwroot files
 app.UseStaticFiles();
+
 app.UseAuthorization();
 
 app.MapControllers();
@@ -32,12 +39,15 @@ var logger = services.GetRequiredService<ILogger<Program>>();
 
 try
 {
+    // database sql create using dotnet entity framework
     await context.Database.MigrateAsync();
+    //initialize data
     await StoreContentSeed.SeedAsync(context);
 }
 catch (System.Exception)
 {
     logger.LogCritical("An Error occured during migration");
 }
+
 
 app.Run();

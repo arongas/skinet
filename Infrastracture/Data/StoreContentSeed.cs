@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json;
-using System.Threading.Tasks;
 using Core.Entities;
 
 namespace Infrastracture.Data
 {
+    //Initialize data on startup
     public class StoreContentSeed
     {
         public static async Task SeedAsync(StoreContext context){

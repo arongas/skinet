@@ -4,6 +4,7 @@ using Core.Entities;
 
 namespace API.Helpers
 {
+    //DTO to entity mapping resolver
     public class ProductUrlResolver : IValueResolver<Product, ProductDto, String>
     {
         private readonly IConfiguration _config;

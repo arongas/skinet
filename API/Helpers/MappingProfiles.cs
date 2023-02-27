@@ -4,6 +4,7 @@ using Core.Entities;
 
 namespace API.Helpers
 {
+  //DTO to entity mapping
     public class MappingProfiles: Profile
     {
        public MappingProfiles(){

@@ -4,6 +4,7 @@ using API.Errors;
 
 namespace API.Middleware
 {
+    //Exception handler/middleware
     public class ExceptionMiddleware
     {
         private readonly RequestDelegate _next;

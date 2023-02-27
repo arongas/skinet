@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace API.Errors
 {
+    //api error response
     public class ApiResponse
     {
         public ApiResponse(int statusCode, string message=null)
