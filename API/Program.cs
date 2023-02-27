@@ -26,7 +26,7 @@ if (app.Environment.IsDevelopment())
 
 //serve wwwroot files
 app.UseStaticFiles();
-
+app.UseCors("CorsPolicy");
 app.UseAuthorization();
 
 app.MapControllers();
